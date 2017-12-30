@@ -1,3 +1,6 @@
+
+#include <numeric>
+#include <string>
 #include "PID.h"
 
 using namespace std;
@@ -11,11 +14,24 @@ PID::PID() {}
 PID::~PID() {}
 
 void PID::Init(double Kp, double Ki, double Kd) {
+	this->Kp = Kp;
+	this->Ki = Ki;
+	this->Kd = Kd;
+
+	p_error = numeric_limits<double>::max();
+	i_error = numeric_limits<double>::max();
+	d_error = numeric_limits<double>::max();
 }
 
 void PID::UpdateError(double cte) {
+
+	d_error = cte - p_error;
+	p_error = cte;
+	i_error += cte;
+
 }
 
 double PID::TotalError() {
+	return -(Kp * p_error);
 }
 
