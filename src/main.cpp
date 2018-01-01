@@ -34,7 +34,7 @@ int main()
 
   PID pid;
   // TODO: Initialize the pid variable.
-  pid.Init(0.1, 1.0, 0.0);
+  pid.Init(0.13, 1.9, 0.001);
 
   // PID controller for throttle
   //PID speed_pid;
@@ -55,7 +55,7 @@ int main()
         if (event == "telemetry") {
           // j[1] is the data JSON object
           double cte = std::stod(j[1]["cte"].get<std::string>());
-         // double speed = std::stod(j[1]["speed"].get<std::string>());
+          double speed = std::stod(j[1]["speed"].get<std::string>());
          // double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value;
           //const double target_speed = 10.0;
@@ -67,7 +67,7 @@ int main()
           */
           pid.UpdateError(cte);
 
-          steer_value = pid.TotalError();
+          steer_value = pid.TotalError(speed);
 
           // compute new throttle
           //speed_pid.UpdateError(speed - target_speed);
@@ -78,7 +78,7 @@ int main()
 
           json msgJson;
           msgJson["steering_angle"] = steer_value;
-          msgJson["throttle"] = 0.2;
+          msgJson["throttle"] = 0.4;
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
           std::cout << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
