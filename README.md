@@ -25,5 +25,10 @@ Derivative control keeps track of the rate at which the error value changes and 
 
 These properties are used to tune the gain values for optimum system behaviour. While there is no specific rule set on how the values should be tuned, it is possible to tune the parameters either manually or programatically using one of the algorithms for e.g., twiddle that was introduced in the lessons.
 
-For this project, I have tuned the parameters manually.
+For this project, I have tuned the parameters manually by trial and error method.
+Initially all the three parameters are set to 0 and P value is increased in small steps. At each step, the behaviour is observed in the simulator. With increasing proportional gain, the system response is much quicker and the car is able to go around the curves easily but at the same time, oscillations about centerline also increases. The value at which the car is able to drive farthest is frozen at this point.
 
+Next, differential gain value, D is increased slowly starting from 0. With increasing D, oscillations reduce and also response time of the car reduces. A suitable value at which oscillations are minimum yet response is good enough to negotiate the entire track is chosen. 
+With only these 2 parameters tuned, car is able to go around the track without overshooting. Further, integral gain value is adjusted in very small steps (as suggested in the forum) to further fine tune controller output.
+The values that I have came up with for gain parameters are:
+P: 0.13, I: 0.001, D: 1.9
