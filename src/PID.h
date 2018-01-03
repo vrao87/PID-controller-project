@@ -40,7 +40,7 @@ public:
   /*
   * Calculate the total PID error.
   */
-  double TotalError(double speed);
+  double TotalError();
 
   /*
   * Perform parameter optimization with twiddle algorithm.
