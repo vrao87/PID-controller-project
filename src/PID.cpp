@@ -41,22 +41,22 @@ double PID::TotalError() {
 	return Err;
 }
 
-double PID::Twiddle(){
-	double best_err = 0.0;
+// double PID::Twiddle(){
+// 	double best_err = 0.0;
 
-#if TUNE_PARAMS	
-	if(twiddle_params == 1){
-       /* tune proportional parameter */
-	}
+// #if TUNE_PARAMS	
+// 	if(twiddle_params == 1){
+//        /* tune proportional parameter */
+// 	}
 
-	if(twiddle_params == 2){
-		/* tune differential parameter */
-	}
+// 	if(twiddle_params == 2){
+// 		/* tune differential parameter */
+// 	}
 
-	if(twiddle_params == 3){
-		/* tune all three parameters */
-	}
-#endif
-return best_err;
-}
+// 	if(twiddle_params == 3){
+// 		/* tune all three parameters */
+// 	}
+// #endif
+// return best_err;
+// }
 
