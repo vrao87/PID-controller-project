@@ -45,7 +45,7 @@ public:
   /*
   * Perform parameter optimization with twiddle algorithm.
   */
-  double Twiddle();
+  //double Twiddle();
 };
 
 #endif /* PID_H */
