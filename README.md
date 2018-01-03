@@ -31,7 +31,9 @@ Initially all the three parameters are set to 0 and P value is increased in smal
 Next, differential gain value, D is increased slowly starting from 0. With increasing D, oscillations reduce and also response time of the car reduces. A suitable value at which oscillations are minimum yet response is good enough to negotiate the entire track is chosen. 
 With only these 2 parameters tuned, car is able to go around the track without overshooting. Further, integral gain value is adjusted in very small steps (as suggested in the forum) to further fine tune controller output.
 The values that I have came up with for gain parameters are:
-**P: 0.13, I: 0.001, D: 1.9**
+**P: 0.16, I: 00006, D: 2.1**
+
+Also, throttle value is increased and set at 0.4.
 
 ---
 
